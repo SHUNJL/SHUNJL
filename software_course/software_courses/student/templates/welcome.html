@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Slideshow Example</title>
+   <!-- 引入 css文件 -->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/bootstrap.css') }}">
+  <style>
+    /* 设置页面背景和动画 */
+    body {
+      /* 设置背景图像尺寸 */
+      background-size: cover;
+      /* 设置背景图像位置 */
+      background-position: center;
+      /* 设置背景颜色作为背景图像加载时的备选 */
+      background-color: #cccccc;
+      /* 设置背景图像不固定，随着内容滚动 */
+      background-attachment: fixed;
+      /* 开启动画 */
+      animation: slideshow 15s infinite;
+    }
+
+    /* 定义动画 */
+    @keyframes slideshow {
+      /* 每张图片显示的时间 */
+      0% { background-image: url('/static/image/1.jpg'); }
+      25% { background-image: url('/static/image/2.jpg'); }
+      50% { background-image: url('/static/image/3.jpg'); }
+      75% { background-image: url('/static/image/4.jpg'); }
+      100% { background-image: url('/static/image/1.jpg'); }
+    }
+
+    /* 设置按钮容器样式 */
+    .button-container {
+      width: auto;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    /* 设置按钮样式 */
+    .custom-btn {
+      width: 200px;
+      height: 60px;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <form action="/login" method="post">
+      <button 
+      type="submit"
+      class="btn btn-primary custom-btn" 
+      id="login" 
+      name="button"
+      value="login">登录</button>
+    </form>
+    <form action="/register" method="post">
+      <button 
+      type="submit" 
+      class="btn btn-secondary custom-btn" 
+      id="register" 
+      name="button"
+      value="register">注册</button>
+    </form>
+  </div>
+</body>
+</html>
